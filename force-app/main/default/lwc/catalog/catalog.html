@@ -1,0 +1,43 @@
+<template>
+    <template if:true={products}>
+        <!--Title-->
+        <p class="title">Catalog</p>
+
+         <!--Button to Add Product-->
+        <lightning-button label="Add Product" onclick={openModal}></lightning-button>
+
+         <!--Display list of products-->
+        <div class="product-list">
+          <template for:each={products} for:item="product">
+            <div key={product.Id} class="product-item">
+                <div class="product-header">
+                    <!--Close button-->
+                    <lightning-icon icon-name="utility:close" size="small" class="delete-product-btn" onclick={removeProductFromCatalog} data-id={product.Id}></lightning-icon>
+                    <!--Edit button-->
+                    <lightning-icon icon-name="utility:edit" size="small" class="edit-product-btn" onclick={editProduct} data-id={product.Id}></lightning-icon>
+                </div>
+                <p><strong>{product.Name}</strong></p>
+                <p>Description: {product.Description}</p>
+                <p>Price: {product.Price}</p>
+                <p>Quantity in stock: {product.Quantity}</p>
+
+                <!--Choose a quantity-->
+                <div class="selection-quantity-container">
+                    <label for="quantity-{product.Id}">Quantity:</label>
+                    <input type="number" id="quantity-{product.Id}" min="1" max={product.Quantity} value="0" data-id={product.Id} oninput={restrictInput}/>
+                    <button class="add-to-cart-btn" onclick={addToCart} data-id={product.Id}>Add to Cart</button>
+                </div>
+            </div>
+          </template>
+        </div>
+    </template>
+
+    <!-- Modal to Add/Edit a product-->
+    <c-modal is-open={isModalOpen} header="Add/Edit Product" product={selectedProduct}  onclose={closeModal} onproductadd={handleProductAdd}></c-modal>
+
+    <!-- Loader-->
+    <template if:true={isLoading}>
+        <p>Loading products...</p>
+    </template> 
+
+</template>

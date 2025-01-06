@@ -1,0 +1,9 @@
+<template>
+    <div class="container">
+      <!-- Catalog Component -->
+      <c-catalog class="half-screen" onnotifybasket={handleNotifyBasket}></c-catalog>
+  
+      <!-- Basket Component -->
+      <c-basket class="half-screen" cart-items={cartItems} onupdatecart={handleUpdateCart}></c-basket>
+    </div>
+  </template>

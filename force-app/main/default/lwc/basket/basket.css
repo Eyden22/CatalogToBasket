@@ -1,0 +1,121 @@
+.basket-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 15px;
+    padding: 20px;
+}
+
+.basket-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 280px; 
+    margin: 0 auto;
+}
+
+.basket-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.basket-item p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.basket-item lightning-input {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 150px; 
+}
+
+.basket-item lightning-button {
+    margin-top: 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.basket-item lightning-button:hover {
+    background-color: #d62c2c;
+}
+
+.basket-save-button {
+    margin-top: 20px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto; 
+}
+
+.basket-list p {
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+.empty-basket-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6f61; 
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe6e6; 
+    border: 1px solid #ff6f61;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    color: #333;
+    width: fit-content;
+}
+
+.total-price {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    border: 2px solid #bdc3c7;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.total-price span {
+    color: #e74c3c; /* Red color for the price */
+    font-size: 24px;
+    font-weight: bold;
+}

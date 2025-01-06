@@ -1,0 +1,33 @@
+<template>
+    <template if:true={isOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Header -->
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">{header}</h2>
+                </header>
+
+                <!-- Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input label="Product Name" value={productFields.Name} onchange={handleInputChange} data-field="Name"></lightning-input>
+                    <lightning-input label="Description" value={productFields.Description} onchange={handleInputChange} data-field="Description"></lightning-input>
+                    <lightning-input label="Price" type="number" value={productFields.Price} onchange={handleInputChange} data-field="Price" step="0.01"></lightning-input>
+                    <lightning-input label="Quantity" type="number" value={productFields.Quantity} onchange={handleInputChange} data-field="Quantity"></lightning-input>
+
+                    <!-- Error -->
+                    <template if:true={error}>
+                        <div class="slds-text-color_error slds-m-top_small">{error}</div>
+                    </template>
+                </div>
+
+                <!-- Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+                    <lightning-button variant="brand" label="Save" onclick={saveProduct} disabled={isDisabled}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
